@@ -54,6 +54,7 @@ public class MyController {
     @GetMapping("/FindUserFavouriteMusic/{userId}")
     //difference b/w int and integer in argument
     public Music getUserFavouriteMusic(@PathVariable int userId){
+        System.out.println("finding by userID: "+userId);
         return this.musicService.getUserFavouriteMusic(userId);
     }
 
