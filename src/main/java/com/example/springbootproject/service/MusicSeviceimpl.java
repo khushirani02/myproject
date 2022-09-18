@@ -2,6 +2,7 @@ package com.example.springbootproject.service;
 
 import com.example.springbootproject.entities.Music;
 import com.example.springbootproject.repository.MusicRepository;
+import com.example.springbootproject.response.AddMusicResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,13 +18,18 @@ public class MusicSeviceimpl implements MusicService{
     }
 
     @Override
-    public Music addMusic(Music music) {
-        musicRepository.save(music);
-        return music;
+    public AddMusicResponse addMusic(Music music) {
+
+        try {
+            musicRepository.save(music);
+        }catch (Exception e){
+            return new AddMusicResponse(e.getMessage(),"MUSIC ADD ERROR",music);
+        }
+        return new AddMusicResponse("Music saved","NO ERROR",music);
     }
 
     @Override
-    public Music getUserFavouriteMusic(int userId) {
+    public List<Music> getUserFavouriteMusic(int userId) {
         return  musicRepository.findByUserId(userId);
     }
 }

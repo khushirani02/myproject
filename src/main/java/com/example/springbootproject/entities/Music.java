@@ -16,7 +16,7 @@ public class Music {
     private int id;
     @Column(name="name")
     private String name;
-    @Column(name="userId")
+    @Column(name="userid")
     private int userId;
 
     public Music(int id,String name,int userId){
@@ -25,4 +25,6 @@ public class Music {
         this.userId=userId;
     }
     public Music(){};
+
+
 }
