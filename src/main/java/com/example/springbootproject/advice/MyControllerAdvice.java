@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
-@ControllerAdvice
+//@ControllerAdvice
 public class MyControllerAdvice  {
     @ExceptionHandler
     @ResponseStatus(HttpStatus.BAD_REQUEST)
@@ -18,7 +18,7 @@ public class MyControllerAdvice  {
 
     }
 
-
+    //localhost:8080/my/FindUserFavouriteMusic/15 (if 15 (userid) is not present in table)
     @ResponseBody
     @ResponseStatus(HttpStatus.PAYLOAD_TOO_LARGE)
     @ExceptionHandler(NotFoundException.class)

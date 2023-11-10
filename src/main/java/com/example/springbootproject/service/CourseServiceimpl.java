@@ -5,6 +5,7 @@ import com.example.springbootproject.entities.User;
 import com.example.springbootproject.repository.CourseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,7 +42,19 @@ public class CourseServiceimpl implements CourseService{
         return course;
     }
 
+    @Override
+    public Course updateCourse(Course course, long courseId) {
+        Course c=courseRepository.findById(courseId).get();
+        c.setDescription(course.getDescription());
+        c.setTitle(course.getTitle());
+        courseRepository.save(c);
+        return course;
+    }
 
+    @Override
+    public void deleteCourse(long courseId) {
+        courseRepository.deleteById(courseId);
+    }
 
 
 }
