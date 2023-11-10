@@ -13,7 +13,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name="User")
 public class User {
-    @Id   //to create primary key
+    @Id   //to create primary keyz
     @Column(name="id")
     private int id;
     @Column(name="age")

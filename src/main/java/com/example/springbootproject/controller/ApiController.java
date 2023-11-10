@@ -58,7 +58,27 @@ public class ApiController {
         return this.courseservice.addCourse(course);
     }
 
+    //update course using PUT request
+    @PutMapping("/courses/{courseId}")
+    public Course updateCourse(@RequestBody Course course,@PathVariable String courseId){
+        return this.courseservice.updateCourse(course,Long.parseLong(courseId));
+    }
 
+    //delete course  by id
+    @DeleteMapping("/courses/{courseId}")
+    public void deleteCourse(@PathVariable String courseId){
+         this.courseservice.deleteCourse(Long.parseLong(courseId));
+    }
 
+    @PostMapping("/courses")
+    public Course addCource(@RequestBody Course course){
+        return this.courseservice.addCourse(course);
+    }
+    /*
+    @GetMapping("/books")
+    Public Cource getBooks(@RequestBody Course books){
+        return this.courseservice.getCourse()
+    }
+    */
 
 }
